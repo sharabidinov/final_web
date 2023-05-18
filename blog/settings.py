@@ -9,8 +9,9 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
-
+import os.path
 from pathlib import Path
+import django_on_heroku
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -24,7 +25,7 @@ SECRET_KEY = 'django-insecure-vq&tfao-*ar&afa2q!@pe-r1k(^vfw9intgcflmyf&ot1cp8-@
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -85,13 +86,13 @@ REST_FRAMEWORK = {
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'OPTIONS': {
-            'options': '-c search_path=blog_schema'
-        },
-        'NAME': 'blog',
-        'USER': 'admin',
-        'PASSWORD': '1234',
-        'HOST': '',
+        # 'OPTIONS': {
+        #     'options': '-c search_path=blog_schema'
+        # },
+        'NAME': 'd5b42uktv8oitd',
+        'USER': 'uytcynoirzzljf',
+        'PASSWORD': 'fa54f2b7c82a172413c7c05aed0c9a2333bff02f0dc0df658bfe62dcf08ff1c2',
+        'HOST': 'ec2-3-232-103-50.compute-1.amazonaws.com',
         'PORT': 5432
     }
 }
@@ -132,7 +133,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 STATICFILES_DIRS = (BASE_DIR / 'static',)
-STATIC_URL = 'static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_URL = '/static/'
+django_on_heroku.settings(locals())
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
