@@ -1,5 +1,5 @@
 # Final web project
-
+link to the [deployment](https://ala-too-final.herokuapp.com/)
 ### Django blog web-app info and quick start
 
 * Dependencies:
