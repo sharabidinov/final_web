@@ -3,7 +3,7 @@
 ### Django blog web-app info and quick start
 
 * Dependencies:
-  * ```python 3.8.5```
+  * ```python 3.8.10```
   * ``` ubuntu 20.04 lts ```
   * ``` postgresql 12 ``` there might be issues on ubuntu related with db, please [read this](https://gist.github.com/axelbdt/74898d80ceee51b69a16b575345e8457)
   * ``` requirements.txt ```
